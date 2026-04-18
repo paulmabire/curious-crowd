@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curious Crowd — Dossier de Partenariat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#8f706c",
+              "secondary": "#9b423a",
+              "on-secondary-container": "#762620",
+              "surface-dim": "#dcd9d9",
+              "surface-container-highest": "#e5e2e1",
+              "surface-container-high": "#eae7e7",
+              "inverse-on-surface": "#f3f0ef",
+              "on-surface": "#1c1b1b",
+              "on-primary-container": "#ffe7e4",
+              "on-primary-fixed": "#410002",
+              "on-primary-fixed-variant": "#93000a",
+              "inverse-surface": "#313030",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#001e2e",
+              "tertiary": "#00587f",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-background": "#1c1b1b",
+              "surface": "#fcf9f8",
+              "surface-container": "#f0eded",
+              "primary-container": "#c8302a",
+              "tertiary-fixed": "#c8e6ff",
+              "tertiary-container": "#0072a2",
+              "primary-fixed-dim": "#ffb4ab",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#5a403d",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#ffdad6",
+              "inverse-primary": "#ffb4ab",
+              "surface-tint": "#b6221f",
+              "surface-variant": "#e5e2e1",
+              "surface-bright": "#fcf9f8",
+              "on-secondary-fixed": "#410102",
+              "secondary-fixed-dim": "#ffb4ab",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#ddefff",
+              "surface-container-low": "#f6f3f2",
+              "primary-fixed": "#ffdad6",
+              "outline-variant": "#e3beb9",
+              "on-secondary-fixed-variant": "#7d2c25",
+              "secondary-container": "#fd8f83",
+              "primary": "#a51315",
+              "on-tertiary-fixed-variant": "#004c6d",
+              "tertiary-fixed-dim": "#87ceff",
+              "background": "#fcf9f8"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .text-justify-editorial {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .glass-nav {
+            background-color: rgba(252, 249, 248, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .bw-filter {
+            filter: grayscale(100%) contrast(110%);
+        }
+        ::selection {
+            background-color: #c8302a;
+            color: white;
+        }
+    </style>
+<style>.rendering-pixelated { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 border-t-4 border-primary glass-nav shadow-[0px_20px_40px_rgba(28,27,27,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 mx-auto max-w-7xl">
+<div class="font-headline font-bold text-on-surface tracking-tighter text-xl">
+                The Curious Crowd
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface/60 font-medium font-label uppercase tracking-widest text-[10px] hover:text-primary transition-colors duration-300" href="#concept">Concept</a>
+<a class="text-on-surface/60 font-medium font-label uppercase tracking-widest text-[10px] hover:text-primary transition-colors duration-300" href="#format">Format</a>
+<a class="text-on-surface/60 font-medium font-label uppercase tracking-widest text-[10px] hover:text-primary transition-colors duration-300" href="#avantages">Avantages</a>
+<a class="text-on-surface/60 font-medium font-label uppercase tracking-widest text-[10px] hover:text-primary transition-colors duration-300" href="#fondateurs">Fondateurs</a>
+<a class="text-on-surface/60 font-medium font-label uppercase tracking-widest text-[10px] hover:text-primary transition-colors duration-300" href="#ambition">Ambition</a>
+<a class="text-on-surface font-bold border-b-2 border-primary pb-1 font-label uppercase tracking-widest text-[10px]" href="#contact">Contact</a>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Progress Bar -->
+<div class="h-0.5 bg-primary w-0 transition-all duration-300" id="scroll-progress"></div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex flex-col justify-center px-8 md:px-24 pt-24 overflow-hidden">
+<div class="absolute inset-0 -z-20">
+<img alt="Atmosphere" class="w-full h-full object-cover bw-filter" src="75071559e510ad51b40553f7e7f9a32a.png"/>
+<div class="absolute inset-0 bg-surface/60 md:bg-surface/40"></div>
+</div>
+<div class="max-w-4xl z-10">
+<h1 class="font-headline italic text-primary text-5xl md:text-8xl tracking-tight leading-tight mb-6">
+                The Curious Crowd
+            </h1>
+<p class="font-label uppercase tracking-[0.2em] text-sm md:text-base text-on-surface font-semibold mb-8">
+                Conférences en petit comité · Bar &amp; Networking<br/>
+</p>
+<h2 class="font-headline text-3xl md:text-5xl text-on-surface font-light leading-snug max-w-2xl">
+                Des idées sorties des amphithéâtres, remises dans notre quotidien.
+            </h2>
+</div>
+</header>
+<!-- 01 — Le concept -->
+<section class="py-24 md:py-40 px-8 md:px-24 bg-surface-container-low" id="concept">
+<div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">01 — Le concept</span>
+<h3 class="font-headline text-4xl md:text-5xl mt-4 leading-tight">Des talks de qualité, dans des lieux qui ont du caractère.</h3>
+<div class="mt-12 hidden md:block aspect-[4/5] overflow-hidden">
+<img alt="Lieu de caractère" class="w-full h-full object-cover bw-filter" src="c986ae2006a3047b90aaf6f98933246f.png"/>
+</div>
+</div>
+<div class="md:col-span-8 space-y-8">
+<p class="font-body text-xl leading-relaxed text-on-surface">
+                    The Curious Crowd est une série de conférences en petit comité, organisées dans des bars et hôtels, où des experts partagent leur savoir sur une thématique précise, dans un cadre convivial et interactif.
+                </p>
+<div class="grid md:grid-cols-2 gap-12 text-on-surface-variant font-body leading-relaxed">
+<p>
+                        Nous croyons que la curiosité casse la routine et nourrit la réflexion. Il existe un vrai désir de formats intelligents, accessibles et non digitaux. Les meilleures idées naissent souvent autour d'un verre, entre personnes ouvertes d'esprit.
+                    </p>
+<p>
+                        Ce format a déjà fait ses preuves aux États-Unis avec des initiatives comme Lectures on Tap. Nous l'avons nous-mêmes testé avec succès lors de plusieurs soirées privées organisées avec une vingtaine de participants.
+                    </p>
+</div>
+<div class="aspect-video overflow-hidden">
+<img alt="Public attentif" class="w-full h-full object-cover bw-filter" src="accbaada804262dd5aa655bde385e18a.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 02 — Le format -->
+<section class="py-24 md:py-40 px-8 md:px-24" id="format">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">02 — Le format</span>
+<h3 class="font-headline text-4xl md:text-5xl mt-4">Une soirée, un expert, une idée.</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-0 border-y border-outline-variant/20 mb-12">
+<div class="p-8 md:p-12 border-r border-outline-variant/20">
+<span class="material-symbols-outlined text-primary mb-4">groups</span>
+<h4 class="font-label uppercase tracking-widest text-[10px] text-on-surface-variant mb-4">Audience</h4>
+<p class="font-headline italic text-2xl">CSP+, 30–40 ans, curieuse et engagée.</p>
+</div>
+<div class="p-8 md:p-12 border-r border-outline-variant/20">
+<span class="material-symbols-outlined text-primary mb-4">person_add</span>
+<h4 class="font-label uppercase tracking-widest text-[10px] text-on-surface-variant mb-4">Capacité</h4>
+<p class="font-headline italic text-2xl">Jauge de 20 à 40 personnes par soirée.</p>
+</div>
+<div class="p-8 md:p-12">
+<span class="material-symbols-outlined text-primary mb-4">local_bar</span>
+<h4 class="font-label uppercase tracking-widest text-[10px] text-on-surface-variant mb-4">Consommation</h4>
+<p class="font-headline italic text-2xl">Une première boisson incluse, une seconde proposée en fin de talk.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-start mb-24">
+<div class="grid gap-8 py-12 px-8 bg-surface-container-low">
+<div>
+<h5 class="font-label uppercase tracking-widest text-[10px] text-primary font-bold mb-2">Fréquence</h5>
+<p class="font-body text-lg">environ 1 soir par mois</p>
+</div>
+<div>
+<h5 class="font-label uppercase tracking-widest text-[10px] text-primary font-bold mb-2">Créneau</h5>
+<p class="font-body text-lg">mardi ou mercredi soir</p>
+</div>
+</div>
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Networking" class="w-full h-full object-cover bw-filter" src="77a9a67c3bc9ebbbd01b5e8cee09c4f5.png"/>
+</div>
+</div>
+<!-- Ordre du jour type -->
+<div class="mt-24 max-w-2xl">
+<h4 class="font-headline text-3xl mb-12">Ordre du jour type</h4>
+<div class="space-y-6">
+<div class="flex items-baseline gap-8">
+<span class="font-label font-bold text-primary w-16">19h30</span>
+<p class="font-body border-b border-outline-variant/10 pb-4 flex-grow">Accueil des participants &amp; commandes</p>
+</div>
+<div class="flex items-baseline gap-8">
+<span class="font-label font-bold text-primary w-16">19h45</span>
+<p class="font-body border-b border-outline-variant/10 pb-4 flex-grow">Ouverture de la soirée — mot de Robin Carel</p>
+</div>
+<div class="flex items-baseline gap-8">
+<span class="font-label font-bold text-primary w-16">20h30</span>
+<p class="font-body border-b border-outline-variant/10 pb-4 flex-grow">Conférence (45 min) + échanges avec le conférencier (20 min)</p>
+</div>
+<div class="flex items-baseline gap-8">
+<span class="font-label font-bold text-primary w-16">20h45</span>
+<p class="font-body border-b border-outline-variant/10 pb-4 flex-grow">Verres, networking &amp; discussions informelles</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 — Ce que cela représente pour vous -->
+<section class="py-24 md:py-40 px-8 md:px-24 bg-on-surface text-surface" id="avantages">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-24 items-center">
+<div>
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">03 — Ce que cela représente pour vous</span>
+<h3 class="font-headline text-4xl md:text-5xl mt-4 leading-tight">Une clientèle qualifiée, un soir habituellement calme.</h3>
+<div class="mt-16 aspect-square overflow-hidden hidden md:block">
+<img alt="Cheers" class="w-full h-full object-cover bw-filter" src="5099e440ffc89de5b77cfba4c463237e.png"/>
+</div>
+</div>
+<div class="space-y-12">
+<div class="group">
+<h4 class="font-label uppercase tracking-widest text-[11px] text-primary font-bold mb-2">Trafic qualifié</h4>
+<p class="font-body text-surface/80">Jeunes cadres parisiens, CSP+, 30–40 ans — sur un créneau de faible affluence.</p>
+</div>
+<div class="group">
+<h4 class="font-label uppercase tracking-widest text-[11px] text-primary font-bold mb-2">Chiffre assuré</h4>
+<p class="font-body text-surface/80">Minimum une consommation par client, et une dynamique qui incite à rester pour un second verre.</p>
+</div>
+<div class="group">
+<h4 class="font-label uppercase tracking-widest text-[11px] text-primary font-bold mb-2">Image &amp; notoriété</h4>
+<p class="font-body text-surface/80">Positionnement premium et culturel au sein d'une communauté fidèle et engagée.</p>
+</div>
+<div class="group">
+<h4 class="font-label uppercase tracking-widest text-[11px] text-primary font-bold mb-2">Clé en main</h4>
+<p class="font-body text-surface/80">Nous gérons tout : intervenants, préparation éditoriale, animation et communication.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 — Les fondateurs -->
+<section class="py-24 md:py-40 px-8 md:px-24" id="fondateurs">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">04 — Les fondateurs</span>
+<h3 class="font-headline text-4xl md:text-5xl mt-4">Trois profils, une conviction commune.</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- Robin Carel -->
+<div class="space-y-6">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container">
+<img alt="Portrait de Robin Carel" class="w-full h-full object-cover bw-filter object-center" src="robin_carel.png"/>
+</div>
+<div>
+<h4 class="font-headline text-2xl mb-1">Robin Carel</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                            Ancien journaliste chez LCI et BFM, fondateur du média L'Informateur. Passionné d'investigation et de politique. Anime et prépare le contenu éditorial de chaque soirée.
+                        </p>
+</div>
+</div>
+<!-- Boris Chédin -->
+<div class="space-y-6">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container">
+<img alt="Portrait de Boris Chédin" class="w-full h-full object-cover bw-filter object-center rendering-pixelated" src="boris.png"/>
+</div>
+<div>
+<h4 class="font-headline text-2xl mb-1">Boris Chédin</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                            Cofondateur d'un cabinet de conseil en finance. Fils de mécanicien, passionné d'automobile et d'actualité économique.
+                        </p>
+</div>
+</div>
+<!-- Paul Mabire -->
+<div class="space-y-6">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container">
+<img alt="Portrait de Paul Mabire" class="w-full h-full object-cover bw-filter object-center" src="paul.png"/>
+</div>
+<div>
+<h4 class="font-headline text-2xl mb-1">Paul Mabire</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                            VP Sales dans la tech. Fils de paysan, passionné d'agriculture et de lecture. Pilote la stratégie commerciale et les partenariats.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 — Notre ambition -->
+<section class="py-24 md:py-40 px-8 md:px-24 bg-surface-container-high relative overflow-hidden" id="ambition">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 relative z-10">
+<div>
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">05 — Notre ambition</span>
+<h3 class="font-headline text-4xl md:text-5xl mt-4 leading-tight">Construire une communauté autour des idées.</h3>
+</div>
+<div class="space-y-16">
+<div>
+<h4 class="font-headline italic text-2xl mb-6">Court terme</h4>
+<ul class="space-y-4 font-body">
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Lancer une programmation régulière à Paris
+                        </li>
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Construire une communauté fidèle
+                        </li>
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Installer une identité forte avec des partenaires locaux
+                        </li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline italic text-2xl mb-6">Moyen terme</h4>
+<ul class="space-y-4 font-body">
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Développer des formats récurrents
+                        </li>
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Nouer des partenariats culturels et médias
+                        </li>
+<li class="flex items-center gap-4">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+                            Étendre le concept à d'autres villes
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-px h-full bg-primary/10"></div>
+</section>
+<!-- 06 — Prochaine étape -->
+<section class="py-24 md:py-40 px-8 md:px-24 text-center" id="contact">
+<div class="max-w-3xl mx-auto">
+<span class="font-label uppercase tracking-widest text-xs text-primary font-bold">06 — Prochaine étape</span>
+<h3 class="font-headline text-4xl md:text-6xl mt-8 mb-12">Rencontrons-nous autour d'un café.</h3>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<a class="bg-primary-container text-on-primary px-10 py-5 font-label uppercase tracking-widest text-[12px] font-bold hover:bg-primary transition-all shadow-[0px_20px_40px_rgba(200,48,42,0.2)]" href="mailto:paul@thecuriouscrowd.fr">
+                    Contacter l'équipe
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface py-12 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-8 md:px-12 flex flex-col items-start gap-4">
+<p class="font-label text-[10px] uppercase tracking-widest leading-relaxed text-on-surface/40">© 2026 The Curious Crowd.</p>
+</div>
+</footer>
+<script>
+        // Progress bar logic
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+    </script>
+</body></html>
