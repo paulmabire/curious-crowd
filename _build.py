@@ -106,8 +106,8 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 
 <section id="concept" style="background:var(--ciel)"><div class="orb" style="width:450px;height:450px;right:-200px;bottom:-150px"></div><div class="wrap stack">
   <div class="cols cols-2" style="gap:48px 96px">
-    <h2 class="h2">Des conférences de qualité, dans des lieux qui ont du caractère.</h2>
-    <div class="stack"><p>Des échanges de qualité dans des lieux qui ont du caractère ! The Curious Crowd organise des échanges autour d’un verre en petit comité dans des bars ou des hôtels parisiens. Un intervenant (reporter de guerre, médaillé olympique, DJ international…) partage ce qu’il sait d’un sujet précis (les sondages en politique, la famille royale d’Angleterre), dans une ambiance où chacun peut poser ses questions quand il veut.</p><p>Le format a fait ses preuves aux Etats-Unis (Lectures on tap), et nous l’avons testé lors de plusieurs soirées privées d’une vingtaine de personnes.</p></div>
+    <h2 class="h2">Des échanges de qualité dans des lieux qui ont du <span class="blue">caractère</span>.</h2>
+    <div class="stack"><p>The Curious Crowd organise des échanges autour d’un verre en petit comité dans des bars ou des hôtels parisiens. Un intervenant partage ce qu’il sait d’un sujet précis, dans une ambiance où chacun peut poser ses questions quand il veut.</p><p>Le format a fait ses preuves aux Etats-Unis (Lectures on tap), et nous l’avons testé lors de plusieurs soirées privées d’une vingtaine de personnes.</p></div>
   </div>
   <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:56px">
     <img class="photo" src="img/concept1.jpg" alt="Un intervenant face au public" style="height:420px"><img class="photo" src="img/concept2.jpg" alt="Le comptoir d’un bar parisien" style="height:420px;grid-column:span 1">
@@ -120,11 +120,10 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 <section id="format"><div class="wrap">
   <h2 class="h2">Une soirée, un intervenant, <span class="hl">des coulisses.</span></h2>
   <img class="photo" src="img/format.jpg" alt="Une conférence dans un bar" style="height:340px;margin:56px 0">
-  <div class="cols cols-4">
-    <div class="step"><strong>19h30</strong><p>Accueil des participants et premières commandes.</p></div>
-    <div class="step"><strong>19h45</strong><p>Ouverture de la soirée par l’équipe.</p></div>
-    <div class="step"><strong>20h00</strong><p>Conférence de l’intervenant (45 min), puis vos questions (20 min).</p></div>
-    <div class="step"><strong>21h15</strong><p>Verres, rencontres et discussions informelles.</p></div>
+  <div class="cols cols-3">
+    <div class="step"><strong>19h45</strong><p>Accueil des participants autour d’un verre. Premier verre offert avec votre billet d’entrée.</p></div>
+    <div class="step"><strong>20h15</strong><p>Début de l’échange avec l’intervenant.</p></div>
+    <div class="step"><strong>21h30</strong><p>Prolongation de la soirée : rencontres, verres et discussions informelles.</p></div>
   </div>
 </div></section>
 
@@ -178,7 +177,7 @@ page("lieu-partenaire.html", "Devenir lieu partenaire — The Curious Crowd", "A
 <section><div class="wrap stack">{head("Lieux partenaires","Votre lieu,","notre scène.","Un soir de semaine, 20 à 40 curieux viennent écouter un intervenant… et consomment chez vous. Vous ouvrez vos portes, on s’occupe de tout le reste.")}
 <img class="photo banner" src="img/lieux.jpg" alt="Lieu partenaire" style="margin-top:56px">
 <div class="cols cols-2" style="align-items:start">
-  <div class="card"><p class="label">Pourquoi nous accueillir</p><h2 class="h3">Un soir creux qui devient un soir plein.</h2><div>{row("Du monde un soir creux","20 à 40 personnes en semaine, de 19h30 à 22h environ.")}{row("Du chiffre assuré","Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.")}{row("Une nouvelle clientèle","Des curieux qui découvrent votre lieu… et y reviennent.")}{row("Du clé en main","Intervenant, billetterie, animation et communication : on gère tout.")}</div></div>
+  <div class="card"><p class="label">Pourquoi nous accueillir</p><h2 class="h3">Un soir creux qui devient un soir plein.</h2><div>{row("Du monde un soir creux","20 à 40 personnes en semaine, à partir de 19h45.")}{row("Du chiffre assuré","Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.")}{row("Une nouvelle clientèle","Des curieux qui découvrent votre lieu… et y reviennent.")}{row("Du clé en main","Intervenant, billetterie, animation et communication : on gère tout.")}</div></div>
   {form("Parlez-nous de votre lieu.","Nouveau lieu partenaire",[field("lieu","Nom du lieu","Ex. Café Lino"),field("adresse","Adresse","Rue et arrondissement"),field("capacite","Capacité assise","Ex. 40 places"),field("nom","Prénom et nom","Ex. Camille Martin"),field("email","Email","vous@exemple.fr",typ="email"),field("message","Un mot sur votre lieu (facultatif)","Ambiance, soirs calmes, disponibilités…",big=True,req=False)],"Proposer mon lieu")}
 </div></div></section>""")
 
@@ -187,7 +186,7 @@ page("intervenant.html", "Proposer un sujet — The Curious Crowd", "Racontez vo
 <section><div class="wrap stack">{head("Intervenants","Votre métier,","notre sujet du soir.","Reporter, sportive, chef, chercheur… Votre quotidien fascine ceux qui ne le vivent pas. Venez le raconter à 20 à 40 curieux, autour d’un verre.")}
 <img class="photo banner" src="img/format.jpg" alt="Soirée en petit comité" style="margin-top:56px">
 <div class="cols cols-2" style="align-items:start">
-  <div class="card"><p class="label">Comment se déroule une soirée</p><h2 class="h3">Vous racontez, ils vous questionnent.</h2><div>{row("45 minutes de récit","Votre métier, vos coulisses, vos anecdotes. Pas besoin de slides.")}{row("Puis place aux questions","20 minutes d’échange libre, dans une ambiance détendue.")}{row("Un public curieux","20 à 40 personnes, dans un bar ou un hôtel parisien.")}{row("Du clé en main","Lieu, billetterie, animation et communication : on gère tout.")}</div></div>
+  <div class="card"><p class="label">Comment se déroule une soirée</p><h2 class="h3">Vous racontez, ils vous questionnent.</h2><div>{row("Un échange, pas une conférence","Votre métier, vos coulisses, vos anecdotes. Pas besoin de slides.")}{row("Des questions au fil de l’eau","Le public intervient quand il veut, dans une ambiance détendue.")}{row("Un public curieux","20 à 40 personnes, dans un bar ou un hôtel parisien.")}{row("Du clé en main","Lieu, billetterie, animation et communication : on gère tout.")}</div></div>
   {form("Parlez-nous de votre sujet.","Nouvelle proposition d’intervenant",[field("nom","Prénom et nom","Ex. Camille Martin"),field("metier","Votre métier","Ex. reporter, autrice, DJ"),field("sujet","Le sujet que vous aimeriez raconter","Ex. Couvrir une guerre en direct"),field("email","Email","vous@exemple.fr",typ="email"),field("liens","Liens (facultatif)","Site, articles, podcast, réseaux…",req=False),field("message","Un mot de plus (facultatif)","Anecdotes, disponibilités, questions…",big=True,req=False)],"Proposer mon sujet")}
 </div></div></section>""")
 
@@ -195,7 +194,7 @@ page("intervenant.html", "Proposer un sujet — The Curious Crowd", "Racontez vo
 page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour votre réservation.", f"""
 <section><div class="wrap stack">{head("Réservation confirmée","C’est","réservé !","Merci ! Votre reçu vous a été envoyé par email. On a hâte de vous voir.")}
 <img class="photo banner" src="img/concept2.jpg" alt="" style="margin-top:56px">
-<div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h30.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h30, début à 19h45.")}</div>
+<div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
 <div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres conférences</a></div></div>
 </div></section>""")
 # ---------- Mentions légales ----------
