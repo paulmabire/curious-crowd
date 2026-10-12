@@ -38,11 +38,11 @@
 <div class="cols cols-2" style="align-items:start">
   <div class="card"><p class="label">Comment se déroule une soirée</p><h2 class="h3">Vous racontez, ils vous questionnent.</h2><div><div class="row"><h4>45 minutes de récit</h4><p>Votre métier, vos coulisses, vos anecdotes. Pas besoin de slides.</p></div><div class="row"><h4>Puis place aux questions</h4><p>20 minutes d’échange libre, dans une ambiance détendue.</p></div><div class="row"><h4>Un public curieux</h4><p>20 à 40 personnes, dans un bar ou un hôtel parisien.</p></div><div class="row"><h4>Du clé en main</h4><p>Lieu, billetterie, animation et communication : on gère tout.</p></div></div></div>
   <div class="card"><p class="label">Formulaire</p><h2 class="h3">Parlez-nous de votre sujet.</h2>
-<form action="https://formsubmit.co/paul@thecuriouscrowd.fr" method="POST">
-<input type="hidden" name="_subject" value="Nouvelle proposition d’intervenant"><input type="hidden" name="_next" value="https://www.thecuriouscrowd.fr/merci-message.html"><input type="text" name="_honey" style="display:none">
+<form action="https://formsubmit.co/ajax/paul@thecuriouscrowd.fr" method="POST">
+<input type="hidden" name="_subject" value="Nouvelle proposition d’intervenant"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none">
 <label>Prénom et nom<input type="text" name="nom" placeholder="Ex. Camille Martin" required></label><label>Votre métier<input type="text" name="metier" placeholder="Ex. reporter, autrice, DJ" required></label><label>Le sujet que vous aimeriez raconter<input type="text" name="sujet" placeholder="Ex. Couvrir une guerre en direct" required></label><label>Email<input type="email" name="email" placeholder="vous@exemple.fr" required></label><label>Liens (facultatif)<input type="text" name="liens" placeholder="Site, articles, podcast, réseaux…"></label><label>Un mot de plus (facultatif)<textarea name="message" placeholder="Anecdotes, disponibilités, questions…"></textarea></label>
 <div><button class="btn full-m" type="submit">Proposer mon sujet</button><p class="note" style="margin-top:12px">On vous répond sous 48 h.</p></div>
-</form></div>
+</form><div class="sent" hidden><h3 class="h3"><span class="hl">Merci !</span></h3><p>Votre message est bien parti à l’équipe. On vous répond sous 48 h.</p></div></div>
 </div></div></section>
 </main>
 <footer class="footer">
@@ -54,6 +54,7 @@
 <script>
 const b=document.querySelector('.burger'),m=document.querySelector('.menu');
 b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Envoi…';try{const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});if(!r.ok)throw 0;f.hidden=true;f.nextElementSibling.hidden=false}catch(_){btn.disabled=false;btn.textContent='Réessayer';alert('L’envoi a échoué. Écrivez-nous à paul@thecuriouscrowd.fr')}}));
 m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');document.body.style.overflow=''}));
 </script>
 </body>

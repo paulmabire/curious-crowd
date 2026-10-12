@@ -2,7 +2,7 @@
 Pour ajouter un événement : compléter la liste EVENTS ci-dessous, puis relancer."""
 
 EMAIL = "paul@thecuriouscrowd.fr"
-FORM = f"https://formsubmit.co/{EMAIL}"  # 1er envoi : cliquer le lien d'activation reçu par email
+FORM = f"https://formsubmit.co/ajax/{EMAIL}"  # 1er envoi : cliquer le lien d'activation reçu par email
 
 EVENTS = [
     dict(day="11", month="Nov.", when="Mercredi 11 novembre · 19h45", tag="Grand reportage",
@@ -63,6 +63,7 @@ def page(file, title, desc, body):
 <script>
 const b=document.querySelector('.burger'),m=document.querySelector('.menu');
 b.addEventListener('click',()=>{{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}});
+document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{{e.preventDefault();const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Envoi…';try{{const r=await fetch(f.action,{{method:'POST',headers:{{Accept:'application/json'}},body:new FormData(f)}});if(!r.ok)throw 0;f.hidden=true;f.nextElementSibling.hidden=false}}catch(_){{btn.disabled=false;btn.textContent='Réessayer';alert('L’envoi a échoué. Écrivez-nous à {EMAIL}')}}}}));
 m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{{m.classList.remove('open');document.body.style.overflow=''}}));
 </script>
 </body>
@@ -83,10 +84,10 @@ def field(name, label, ph, big=False, req=True, typ="text"):
 def form(title, subject, fields, cta):
     return f"""<div class="card"><p class="label">Formulaire</p><h2 class="h3">{title}</h2>
 <form action="{FORM}" method="POST">
-<input type="hidden" name="_subject" value="{subject}"><input type="hidden" name="_next" value="https://www.thecuriouscrowd.fr/merci-message.html"><input type="text" name="_honey" style="display:none">
+<input type="hidden" name="_subject" value="{subject}"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none">
 {''.join(fields)}
 <div><button class="btn full-m" type="submit">{cta}</button><p class="note" style="margin-top:12px">On vous répond sous 48 h.</p></div>
-</form></div>"""
+</form><div class="sent" hidden><h3 class="h3"><span class="hl">Merci !</span></h3><p>Votre message est bien parti à l’équipe. On vous répond sous 48 h.</p></div></div>"""
 
 # ---------- Accueil ----------
 page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées par ceux qui les font",
@@ -197,12 +198,6 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h30.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h30, début à 19h45.")}</div>
 <div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres conférences</a></div></div>
 </div></section>""")
-page("merci-message.html", "Message envoyé — The Curious Crowd", "Merci pour votre message.", f"""
-<section><div class="wrap stack">{head("Message envoyé","Merci,","on vous répond vite.","Votre message est bien arrivé. On revient vers vous sous 48 h.")}
-<img class="photo banner" src="img/ambition1.jpg" alt="" style="margin-top:56px">
-<div class="ctas"><a class="btn" href="index.html">Retour à l’accueil</a><a class="link" href="conferences.html">Voir les prochaines conférences →</a></div>
-</div></section>""")
-
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
  ("Éditeur", f"The Curious Crowd — [forme juridique, capital, SIRET], [adresse], Paris. Directeur de la publication : [nom]. Contact : {EMAIL}"),
