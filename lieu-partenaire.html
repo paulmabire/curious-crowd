@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devenir lieu partenaire — The Curious Crowd</title>
+<meta name="description" content="Accueillez nos soirées : 20 à 40 curieux un soir de semaine, on s’occupe de tout.">
+<meta property="og:title" content="Devenir lieu partenaire — The Curious Crowd">
+<meta property="og:description" content="Accueillez nos soirées : 20 à 40 curieux un soir de semaine, on s’occupe de tout.">
+<meta property="og:image" content="https://www.thecuriouscrowd.fr/img/foule.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <ul><li><a href="index.html#concept">Concept</a></li><li><a href="index.html#format">Format</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
+    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="menu" aria-label="Menu mobile">
+    <a class="m" href="conferences.html">Prochaines conférences</a>
+    <a class="m" href="index.html#concept">Concept</a>
+    <a class="m" href="index.html#format">Format</a>
+    <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
+    <a class="m" href="intervenant.html">Proposer un sujet</a>
+    <img class="photo" src="img/salle.jpg" alt="" style="height:180px;margin-top:24px">
+    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <a class="link--muted" href="mailto:paul@thecuriouscrowd.fr">paul@thecuriouscrowd.fr</a>
+  </nav>
+</header>
+<main>
+
+<section><div class="wrap stack"><div class="stack"><p class="label">Lieux partenaires</p><h1 class="h1">Votre lieu, <span class="hl">notre scène.</span></h1><p class="lead">Un soir de semaine, 20 à 40 curieux viennent écouter un intervenant… et consomment chez vous. Vous ouvrez vos portes, on s’occupe de tout le reste.</p></div>
+<img class="photo banner" src="img/lounge.jpg" alt="Lieu partenaire" style="margin-top:56px">
+<div class="cols cols-2" style="align-items:start">
+  <div class="card"><p class="label">Pourquoi nous accueillir</p><h2 class="h3">Un soir creux qui devient un soir plein.</h2><div><div class="row"><h4>Du monde un soir creux</h4><p>20 à 40 personnes en semaine, de 19h30 à 22h environ.</p></div><div class="row"><h4>Du chiffre assuré</h4><p>Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.</p></div><div class="row"><h4>Une nouvelle clientèle</h4><p>Des curieux qui découvrent votre lieu… et y reviennent.</p></div><div class="row"><h4>Du clé en main</h4><p>Intervenant, billetterie, animation et communication : on gère tout.</p></div></div></div>
+  <div class="card"><p class="label">Formulaire</p><h2 class="h3">Parlez-nous de votre lieu.</h2>
+<form action="https://formsubmit.co/paul@thecuriouscrowd.fr" method="POST">
+<input type="hidden" name="_subject" value="Nouveau lieu partenaire"><input type="hidden" name="_next" value="https://www.thecuriouscrowd.fr/merci-message.html"><input type="text" name="_honey" style="display:none">
+<label>Nom du lieu<input type="text" name="lieu" placeholder="Ex. Café Lino" required></label><label>Adresse<input type="text" name="adresse" placeholder="Rue et arrondissement" required></label><label>Capacité assise<input type="text" name="capacite" placeholder="Ex. 40 places" required></label><label>Prénom et nom<input type="text" name="nom" placeholder="Ex. Camille Martin" required></label><label>Email<input type="email" name="email" placeholder="vous@exemple.fr" required></label><label>Un mot sur votre lieu (facultatif)<textarea name="message" placeholder="Ambiance, soirs calmes, disponibilités…"></textarea></label>
+<div><button class="btn full-m" type="submit">Proposer mon lieu</button><p class="note" style="margin-top:12px">On vous répond sous 48 h.</p></div>
+</form></div>
+</div></div></section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <small>© 2026 The Curious Crowd · Conférences en petit comité · Paris · <a href="mentions-legales.html">Mentions légales</a></small>
+  </div>
+</footer>
+<script>
+const b=document.querySelector('.burger'),m=document.querySelector('.menu');
+b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');document.body.style.overflow=''}));
+</script>
+</body>
+</html>

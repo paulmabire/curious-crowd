@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réservation confirmée — The Curious Crowd</title>
+<meta name="description" content="Merci pour votre réservation.">
+<meta property="og:title" content="Réservation confirmée — The Curious Crowd">
+<meta property="og:description" content="Merci pour votre réservation.">
+<meta property="og:image" content="https://www.thecuriouscrowd.fr/img/foule.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <ul><li><a href="index.html#concept">Concept</a></li><li><a href="index.html#format">Format</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
+    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="menu" aria-label="Menu mobile">
+    <a class="m" href="conferences.html">Prochaines conférences</a>
+    <a class="m" href="index.html#concept">Concept</a>
+    <a class="m" href="index.html#format">Format</a>
+    <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
+    <a class="m" href="intervenant.html">Proposer un sujet</a>
+    <img class="photo" src="img/salle.jpg" alt="" style="height:180px;margin-top:24px">
+    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <a class="link--muted" href="mailto:paul@thecuriouscrowd.fr">paul@thecuriouscrowd.fr</a>
+  </nav>
+</header>
+<main>
+
+<section><div class="wrap stack"><div class="stack"><p class="label">Réservation confirmée</p><h1 class="h1">C’est <span class="hl">réservé !</span></h1><p class="lead">Merci ! Votre reçu vous a été envoyé par email. On a hâte de vous voir.</p></div>
+<img class="photo banner" src="img/salle.jpg" alt="" style="margin-top:56px">
+<div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h30.</h2><div><div class="row"><h4>Café Lino</h4><p>81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas</p></div><div class="row"><h4>Votre billet</h4><p>20 € · 1 verre de votre choix offert</p></div><div class="row"><h4>Arrivée</h4><p>Accueil dès 19h30, début à 19h45.</p></div></div>
+<div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres conférences</a></div></div>
+</div></section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <small>© 2026 The Curious Crowd · Conférences en petit comité · Paris · <a href="mentions-legales.html">Mentions légales</a></small>
+  </div>
+</footer>
+<script>
+const b=document.querySelector('.burger'),m=document.querySelector('.menu');
+b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');document.body.style.overflow=''}));
+</script>
+</body>
+</html>
