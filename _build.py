@@ -137,7 +137,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
     <div class="card"><img class="photo" src="img/participants.jpg" alt="" style="height:220px"><p class="label">Pour les participants</p><h3 class="h3">Venez avec votre curiosité, repartez avec une histoire à raconter.</h3>
       <div>{row("20 € la soirée","1 verre de votre choix offert.")}{row("20 à 40 personnes","Idéal pour faire des rencontres.")}{row("Des sujets concrets","Des échanges, jamais de cours magistral.")}</div>
       <div><a class="btn full-m" href="conferences.html">Réserver ma place</a></div></div>
-    <div class="card card--dark"><img class="photo" src="img/lieux.jpg" alt="" style="height:220px"><p class="label">Pour les bars et les hôtels</p><h3 class="h3">Un soir calme ? Remplissez-le de curieux.</h3>
+    <div class="card card--dark"><img class="photo" src="img/concept2.jpg" alt="Le comptoir d’un bar parisien" style="height:220px"><p class="label">Pour les bars et les hôtels</p><h3 class="h3">Un soir calme ? Remplissez-le de curieux.</h3>
       <div>{row("Du monde un soir creux","Un public assuré sur un créneau de faible affluence.")}{row("Du chiffre assuré","Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.")}{row("De l’image","Une communauté fidèle et un positionnement culturel.")}{row("Du clé en main","Invités, contenu, animation et communication : nous nous chargeons de tout.")}</div>
       <div><a class="btn btn--light full-m" href="lieu-partenaire.html">Devenir lieu partenaire</a></div></div>
   </div>
@@ -179,7 +179,7 @@ page("conferences.html", "Prochaines conférences — The Curious Crowd", "Chois
 # ---------- Lieu partenaire ----------
 page("lieu-partenaire.html", "Devenir lieu partenaire — The Curious Crowd", "Accueillez nos soirées : 20 à 40 curieux un soir de semaine, on s’occupe de tout.", f"""
 <section><div class="wrap stack">{head("Lieux partenaires","Votre lieu,","notre scène.","Un soir de semaine, 20 à 40 curieux viennent écouter un intervenant… et consomment chez vous. Vous ouvrez vos portes, on s’occupe de tout le reste.")}
-<img class="photo banner" src="img/lieux.jpg" alt="Lieu partenaire" style="margin-top:56px">
+<img class="photo banner" src="img/participants.jpg" alt="Un bar partenaire en soirée" style="margin-top:56px">
 <div class="cols cols-2" style="align-items:start">
   <div class="card"><p class="label">Pourquoi nous accueillir</p><h2 class="h3">Un soir creux qui devient un soir plein.</h2><div>{row("Du monde un soir creux","20 à 40 personnes en semaine, à partir de 19h45.")}{row("Du chiffre assuré","Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.")}{row("Une nouvelle clientèle","Des curieux qui découvrent votre lieu… et y reviennent.")}{row("Du clé en main","Intervenant, billetterie, animation et communication : on gère tout.")}</div></div>
   {form("Parlez-nous de votre lieu.","Nouveau lieu partenaire",[field("lieu","Nom du lieu","Ex. Café Lino"),field("adresse","Adresse","Rue et arrondissement"),field("capacite","Capacité assise","Ex. 40 places"),field("nom","Prénom et nom","Ex. Camille Martin"),field("email","Email","vous@exemple.fr",typ="email"),field("message","Un mot sur votre lieu (facultatif)","Ambiance, soirs calmes, disponibilités…",big=True,req=False)],"Proposer mon lieu")}
