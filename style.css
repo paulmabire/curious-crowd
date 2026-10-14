@@ -3,7 +3,7 @@
 :root{
   --fond:#fff8ec; --surface:#ffffff; --encre:#242021; --noir:#26201b; --gris:#7a6e62;
   --bleu:#5966ff; --lime:#c9f04f; --ciel:#dce3ff; --miel:#ffe8a8;
-  --r-card:24px; --r-btn:4px; --max:1280px; --gutter:clamp(24px,5.5vw,80px);
+  --r-card:24px; --r-btn:4px; --max:1280px; --ligne:#d9cfbf; --gutter:clamp(24px,5.5vw,80px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -41,7 +41,7 @@ section{position:relative;padding:clamp(64px,8vw,120px) 0;overflow:hidden}
 .burger{display:none;background:none;border:0;cursor:pointer;width:28px;height:28px}
 .burger span{display:block;height:2px;background:var(--encre);margin:6px 0}
 .menu{display:none}
-@media (max-width:899px){
+@media (max-width:1079px){
   .nav ul,.nav .btn{display:none}.burger{display:block}
   .menu{position:fixed;inset:84px 0 0;background:var(--fond);padding:24px;flex-direction:column;gap:8px;overflow:auto;z-index:19}
   .menu.open{display:flex}
@@ -114,3 +114,32 @@ textarea{min-height:140px;resize:vertical}
 .footer small{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
 .footer a{text-decoration:none}
 @media (max-width:899px){.btn.full-m{width:100%}}
+
+/* Navigation : page active */
+.nav ul a[aria-current]{text-decoration:underline;text-underline-offset:4px;font-weight:600}
+.menu a.m[aria-current]{color:var(--bleu)}
+.btn--lime{background:var(--lime);color:var(--encre)}
+.btn--lime:hover{background:#fff;color:var(--encre)}
+
+/* Carte « La prochaine rencontre » */
+.next{display:grid;background:var(--noir);color:#fff;border-radius:var(--r-card);overflow:hidden;margin-top:56px;text-align:left}
+.next img{width:100%;height:220px;object-fit:cover}
+.next-body{padding:24px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.next-body .label{color:var(--lime)}
+.next-meta{color:var(--fond);font-size:16px}
+.next-actions{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:10px}
+.next-link{color:#fff;font-weight:600;font-size:15px;text-decoration:none}
+.next-link:hover{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:900px){.next{grid-template-columns:420px 1fr}.next img{height:100%;min-height:340px}.next-body{padding:48px}}
+
+/* Rencontres passées */
+.empty{text-align:center;padding-top:clamp(80px,10vw,140px)}
+.empty .wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
+.empty .lead{max-width:720px}
+.empty .next{max-width:1080px;width:100%}
+.past{padding:0;overflow:hidden;gap:0}
+.past-photo{position:relative}.past-photo img{width:100%;height:340px;object-fit:cover}
+.past-num{position:absolute;top:24px;left:24px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;padding:6px 12px;border-radius:4px}
+.past-body{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px}
+.past-quote{border-top:1px solid var(--ligne,#d9cfbf);padding-top:14px;font-size:20px;font-weight:500}
+.past-links{display:flex;gap:24px;font-weight:600;font-size:15px}.past-links a{text-decoration:none}

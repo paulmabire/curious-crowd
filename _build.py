@@ -15,9 +15,31 @@ EVENTS = [
          url="https://buy.stripe.com/bJe9AT8IRgjah1R3kTdnW02"),
 ]
 
+# Rencontres passées : ajouter ici chaque soirée terminée (la plus récente en premier).
+# dict(num="01", date="Mercredi 11 novembre 2026 · Café Lino", title="…", who="Avec …", quote="« … »",
+#      img="nom-photo", photos="lien album", extrait="lien vidéo")
+PAST = []
+
+def next_card(e):
+    return f"""<article class="next">
+  <img src="img/{e['img']}.jpg" alt="{e['title']}">
+  <div class="next-body">
+    <p class="label">La prochaine rencontre</p>
+    <h2 class="h3">{e['title']}</h2>
+    <p class="next-meta">{e['when']} · Café Lino · 20 €, 1 verre offert</p>
+    <div class="next-actions"><a class="btn btn--lime full-m" href="{e['url']}">Réserver ma place</a><a class="next-link" href="rencontres.html">Toutes les prochaines rencontres →</a></div>
+  </div>
+</article>"""
+
 def row(t, d): return f'<div class="row"><h4>{t}</h4><p>{d}</p></div>'
 
+NAV = [("rencontres.html", "Prochaines rencontres"), ("rencontres-passees.html", "Rencontres passées"),
+       ("index.html#concept", "Concept"), ("lieu-partenaire.html", "Lieux partenaires")]
+
 def page(file, title, desc, body):
+    cur = lambda h: ' aria-current="page"' if h == file else ''
+    nav_links = "".join(f'<li><a href="{h}"{cur(h)}>{l}</a></li>' for h, l in NAV)
+    menu_links = "\n    ".join(f'<a class="m" href="{h}"{cur(h)}>{l}</a>' for h, l in NAV + [("intervenant.html", "Proposer un sujet")])
     html = f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -40,16 +62,12 @@ def page(file, title, desc, body):
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
-    <ul><li><a href="index.html#concept">Concept</a></li><li><a href="index.html#format">Format</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
+    <ul>{nav_links}</ul>
     <a class="btn" href="rencontres.html">Réserver ma place</a>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="menu" aria-label="Menu mobile">
-    <a class="m" href="rencontres.html">Prochaines rencontres</a>
-    <a class="m" href="index.html#concept">Concept</a>
-    <a class="m" href="index.html#format">Format</a>
-    <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
-    <a class="m" href="intervenant.html">Proposer un sujet</a>
+    {menu_links}
     <img class="photo" src="img/discussion.jpg" alt="" style="height:180px;margin-top:24px">
     <a class="btn" href="rencontres.html">Réserver ma place</a>
     <a class="link--muted" href="mailto:{EMAIL}">{EMAIL}</a>
@@ -201,6 +219,22 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
 <div class="ctas" style="margin-top:0"><a class="btn" href="rencontres.html">Voir les autres rencontres</a></div></div>
 </div></section>""")
+# ---------- Rencontres passées ----------
+def past_card(e):
+    links = "".join(f'<a href="{u}">{l} →</a>' for l, u in (("Voir les photos", e.get("photos")), ("Revoir un extrait", e.get("extrait"))) if u)
+    return f"""<article class="card past"><div class="past-photo"><img src="img/{e['img']}.jpg" alt="{e['title']}"><span class="hl past-num">N° {e['num']}</span></div>
+<div class="past-body"><p class="label">{e['date']}</p><h2 class="h3">{e['title']}</h2><p class="note">{e['who']}</p><p class="past-quote">{e['quote']}</p><div class="past-links">{links}</div></div></article>"""
+if PAST:
+    past_body = f"""<section><div class="wrap stack">{head("Archives","Les rencontres","passées.","Ce qu’on s’est raconté, en photos et en quelques phrases. De quoi donner envie de la prochaine.")}
+<div class="cols cols-2" style="margin-top:56px">{"".join(past_card(e) for e in PAST)}</div>
+{next_card(EVENTS[0])}</div></section>"""
+else:
+    past_body = f"""<section class="empty"><div class="wrap">
+<p class="label">Archives</p><h1 class="h2">Les premières rencontres arrivent.</h1>
+<p class="lead">Cette page gardera la trace de chaque soirée : les photos, l’intervenant, ce qu’on en retient. Rendez-vous le 11 novembre pour écrire la première page.</p>
+{next_card(EVENTS[0])}</div></section>"""
+page("rencontres-passees.html", "Rencontres passées — The Curious Crowd", "Les rencontres The Curious Crowd déjà passées : photos, intervenants et ce qu’on en retient.", past_body)
+
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
  ("Éditeur", f"The Curious Crowd — [forme juridique, capital, SIRET], [adresse], Paris. Directeur de la publication : [nom]. Contact : {EMAIL}"),

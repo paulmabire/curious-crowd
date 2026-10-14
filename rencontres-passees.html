@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rencontres passées — The Curious Crowd</title>
+<meta name="description" content="Les rencontres The Curious Crowd déjà passées : photos, intervenants et ce qu’on en retient.">
+<meta property="og:title" content="Rencontres passées — The Curious Crowd">
+<meta property="og:description" content="Les rencontres The Curious Crowd déjà passées : photos, intervenants et ce qu’on en retient.">
+<meta property="og:image" content="https://www.thecuriouscrowd.fr/img/rires.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<meta name="theme-color" content="#fff8ec">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <ul><li><a href="rencontres.html">Prochaines rencontres</a></li><li><a href="rencontres-passees.html" aria-current="page">Rencontres passées</a></li><li><a href="index.html#concept">Concept</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
+    <a class="btn" href="rencontres.html">Réserver ma place</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="menu" aria-label="Menu mobile">
+    <a class="m" href="rencontres.html">Prochaines rencontres</a>
+    <a class="m" href="rencontres-passees.html" aria-current="page">Rencontres passées</a>
+    <a class="m" href="index.html#concept">Concept</a>
+    <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
+    <a class="m" href="intervenant.html">Proposer un sujet</a>
+    <img class="photo" src="img/discussion.jpg" alt="" style="height:180px;margin-top:24px">
+    <a class="btn" href="rencontres.html">Réserver ma place</a>
+    <a class="link--muted" href="mailto:paul@thecuriouscrowd.fr">paul@thecuriouscrowd.fr</a>
+  </nav>
+</header>
+<main>
+<section class="empty"><div class="wrap">
+<p class="label">Archives</p><h1 class="h2">Les premières rencontres arrivent.</h1>
+<p class="lead">Cette page gardera la trace de chaque soirée : les photos, l’intervenant, ce qu’on en retient. Rendez-vous le 11 novembre pour écrire la première page.</p>
+<article class="next">
+  <img src="img/evt-conflit.jpg" alt="Au cœur du conflit : récits d’une reporter">
+  <div class="next-body">
+    <p class="label">La prochaine rencontre</p>
+    <h2 class="h3">Au cœur du conflit : récits d’une reporter</h2>
+    <p class="next-meta">Mercredi 11 novembre · 19h45 · Café Lino · 20 €, 1 verre offert</p>
+    <div class="next-actions"><a class="btn btn--lime full-m" href="https://buy.stripe.com/28E3cv5wF8QI3b1bRpdnW00">Réserver ma place</a><a class="next-link" href="rencontres.html">Toutes les prochaines rencontres →</a></div>
+  </div>
+</article></div></section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
+    <small>© 2026 The Curious Crowd · Rencontres en petit comité · Paris · <a href="mentions-legales.html">Mentions légales</a></small>
+  </div>
+</footer>
+<script>
+const b=document.querySelector('.burger'),m=document.querySelector('.menu');
+b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Envoi…';try{const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});if(!r.ok)throw 0;f.hidden=true;f.nextElementSibling.hidden=false}catch(_){btn.disabled=false;btn.textContent='Réessayer';alert('L’envoi a échoué. Écrivez-nous à paul@thecuriouscrowd.fr')}}));
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');document.body.style.overflow=''}));
+</script>
+</body>
+</html>
