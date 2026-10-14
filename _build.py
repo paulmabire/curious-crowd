@@ -45,7 +45,7 @@ def page(file, title, desc, body):
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="menu" aria-label="Menu mobile">
-    <a class="m" href="rencontres.html">Prochaines soirées</a>
+    <a class="m" href="rencontres.html">Prochaines rencontres</a>
     <a class="m" href="index.html#concept">Concept</a>
     <a class="m" href="index.html#format">Format</a>
     <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
@@ -101,7 +101,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
     <div>
       <h1 class="h1">Les <span class="blue">coulisses</span> des métiers et de l’actualité, racontées par <span class="hl">ceux qui les font.</span></h1>
       <p class="lead" style="margin-top:28px">Un verre avec un reporter de guerre, un médaillé olympique ou un DJ international. Ils racontent les coulisses de leur métier, vous posez vos questions.</p>
-      <div class="ctas"><a class="btn" href="rencontres.html">Voir nos prochaines soirées</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
+      <div class="ctas"><a class="btn" href="rencontres.html">Voir nos prochaines rencontres</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
     </div>
     <img class="photo" src="img/hero.jpg" alt="Une soirée The Curious Crowd dans un bar parisien">
   </div>
@@ -172,8 +172,8 @@ cards = "".join(f"""<article class="card event">
   </div>
   <img class="photo" src="img/{e['img']}.jpg" alt="{e['title']}">
 </article>""" for e in EVENTS)
-page("rencontres.html", "Prochaines soirées — The Curious Crowd", "Choisissez votre soirée et réservez votre place.", f"""
-<section><div class="wrap stack">{head("Agenda","Les prochaines","soirées.","Choisissez votre soirée, réservez votre place, et venez avec vos questions. Places limitées.")}
+page("rencontres.html", "Prochaines rencontres — The Curious Crowd", "Choisissez votre rencontre et réservez votre place.", f"""
+<section><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
 <div class="stack" style="margin-top:56px">{cards}</div></div></section>""")
 
 # ---------- Lieu partenaire ----------
@@ -199,7 +199,7 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <section><div class="wrap stack">{head("Réservation confirmée","C’est","réservé !","Merci ! Votre reçu vous a été envoyé par email. On a hâte de vous voir.")}
 <img class="photo banner" src="img/concept2.jpg" alt="" style="margin-top:56px">
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
-<div class="ctas" style="margin-top:0"><a class="btn" href="rencontres.html">Voir les autres soirées</a></div></div>
+<div class="ctas" style="margin-top:0"><a class="btn" href="rencontres.html">Voir les autres rencontres</a></div></div>
 </div></section>""")
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
