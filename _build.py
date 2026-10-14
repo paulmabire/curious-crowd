@@ -33,6 +33,9 @@ def next_card(e):
 
 def row(t, d): return f'<div class="row"><h4>{t}</h4><p>{d}</p></div>'
 
+import hashlib
+CSS_V = hashlib.md5(open("style.css","rb").read()).hexdigest()[:8]
+
 NAV = [("rencontres.html", "Prochaines rencontres"), ("rencontres-passees.html", "Rencontres passées"),
        ("index.html#concept", "Concept"), ("lieu-partenaire.html", "Lieux partenaires")]
 
@@ -56,7 +59,7 @@ def page(file, title, desc, body):
 <link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta name="theme-color" content="#fff8ec">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={CSS_V}">
 </head>
 <body>
 <header class="nav">
