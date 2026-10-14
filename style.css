@@ -143,3 +143,8 @@ textarea{min-height:140px;resize:vertical}
 .past-body{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px}
 .past-quote{border-top:1px solid var(--ligne,#d9cfbf);padding-top:14px;font-size:20px;font-weight:500}
 .past-links{display:flex;gap:24px;font-weight:600;font-size:15px}.past-links a{text-decoration:none}
+
+/* Format : une photo par moment de la soirée */
+.step-photo{height:260px;margin:0 0 20px;border-radius:16px}
+.step:has(.step-photo){border-top:0;padding-top:0}
+.step:has(.step-photo) strong{border-top:2px solid var(--encre);padding-top:16px}
