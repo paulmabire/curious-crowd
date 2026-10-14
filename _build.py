@@ -41,17 +41,17 @@ def page(file, title, desc, body):
   <div class="wrap">
     <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
     <ul><li><a href="index.html#concept">Concept</a></li><li><a href="index.html#format">Format</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
-    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <a class="btn" href="soirees.html">Réserver ma place</a>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="menu" aria-label="Menu mobile">
-    <a class="m" href="conferences.html">Prochaines soirées</a>
+    <a class="m" href="soirees.html">Prochaines soirées</a>
     <a class="m" href="index.html#concept">Concept</a>
     <a class="m" href="index.html#format">Format</a>
     <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
     <a class="m" href="intervenant.html">Proposer un sujet</a>
     <img class="photo" src="img/concept1.jpg" alt="" style="height:180px;margin-top:24px">
-    <a class="btn" href="conferences.html">Réserver ma place</a>
+    <a class="btn" href="soirees.html">Réserver ma place</a>
     <a class="link--muted" href="mailto:{EMAIL}">{EMAIL}</a>
   </nav>
 </header>
@@ -101,7 +101,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
     <div>
       <h1 class="h1">Les <span class="blue">coulisses</span> des métiers et de l’actualité, racontées par <span class="hl">ceux qui les font.</span></h1>
       <p class="lead" style="margin-top:28px">Un verre avec un reporter de guerre, un médaillé olympique ou un DJ international. Ils racontent les coulisses de leur métier, vous posez vos questions.</p>
-      <div class="ctas"><a class="btn" href="conferences.html">Voir nos prochaines soirées</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
+      <div class="ctas"><a class="btn" href="soirees.html">Voir nos prochaines soirées</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
     </div>
     <img class="photo" src="img/hero.jpg" alt="Une soirée The Curious Crowd dans un bar parisien">
   </div>
@@ -136,7 +136,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
   <div class="cols cols-2" style="margin-top:56px">
     <div class="card"><img class="photo" src="img/participants.jpg" alt="" style="height:220px"><p class="label">Pour les participants</p><h3 class="h3">Venez avec votre curiosité, repartez avec une histoire à raconter.</h3>
       <div>{row("20 € la soirée","1 verre de votre choix offert.")}{row("20 à 40 personnes","Idéal pour faire des rencontres.")}{row("Des sujets concrets","Des échanges, jamais de cours magistral.")}</div>
-      <div><a class="btn full-m" href="conferences.html">Réserver ma place</a></div></div>
+      <div><a class="btn full-m" href="soirees.html">Réserver ma place</a></div></div>
     <div class="card card--dark"><img class="photo" src="img/concept2.jpg" alt="Le comptoir d’un bar parisien" style="height:220px"><p class="label">Pour les bars et les hôtels</p><h3 class="h3">Un soir calme ? Remplissez-le de curieux.</h3>
       <div>{row("Du monde un soir creux","Un public assuré sur un créneau de faible affluence.")}{row("Du chiffre assuré","Au moins une consommation par personne, bien souvent plusieurs verres et de la restauration annexe.")}{row("De l’image","Une communauté fidèle et un positionnement culturel.")}{row("Du clé en main","Invités, contenu, animation et communication : nous nous chargeons de tout.")}</div>
       <div><a class="btn btn--light full-m" href="lieu-partenaire.html">Devenir lieu partenaire</a></div></div>
@@ -172,7 +172,7 @@ cards = "".join(f"""<article class="card event">
   </div>
   <img class="photo" src="img/{e['img']}.jpg" alt="{e['title']}">
 </article>""" for e in EVENTS)
-page("conferences.html", "Prochaines soirées — The Curious Crowd", "Choisissez votre soirée et réservez votre place.", f"""
+page("soirees.html", "Prochaines soirées — The Curious Crowd", "Choisissez votre soirée et réservez votre place.", f"""
 <section><div class="wrap stack">{head("Agenda","Les prochaines","soirées.","Choisissez votre soirée, réservez votre place, et venez avec vos questions. Places limitées.")}
 <div class="stack" style="margin-top:56px">{cards}</div></div></section>""")
 
@@ -199,7 +199,7 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <section><div class="wrap stack">{head("Réservation confirmée","C’est","réservé !","Merci ! Votre reçu vous a été envoyé par email. On a hâte de vous voir.")}
 <img class="photo banner" src="img/concept2.jpg" alt="" style="margin-top:56px">
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
-<div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres soirées</a></div></div>
+<div class="ctas" style="margin-top:0"><a class="btn" href="soirees.html">Voir les autres soirées</a></div></div>
 </div></section>""")
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
