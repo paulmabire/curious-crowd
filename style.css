@@ -1,7 +1,7 @@
 /* The Curious Crowd — tokens issus du DS Figma */
 [hidden]{display:none!important}
 :root{
-  --fond:#fff8ec; --surface:#ffffff; --encre:#242021; --noir:#26201b; --gris:#7a6e62;
+  --fond:#fff8ec; --surface:#ffffff; --encre:#242021; --noir:#26201b; --gris:#5c524a;
   --bleu:#5966ff; --lime:#c9f04f; --ciel:#dce3ff; --miel:#ffe8a8;
   --r-card:24px; --r-btn:4px; --max:1280px; --ligne:#d9cfbf; --gutter:clamp(24px,5.5vw,80px);
 }
@@ -84,7 +84,7 @@ section>.wrap{position:relative;z-index:1}
 .step strong{display:block;font-size:28px;font-weight:700;letter-spacing:-.02em}
 .step p{color:var(--gris);font-size:15px}
 .goal{display:flex;gap:16px;border-top:1px solid var(--encre);padding:18px 0;font-weight:500}
-.goal span{color:var(--bleu);font-weight:700}
+.goal span{color:var(--encre);font-weight:700}
 
 /* Événements */
 .event{display:grid;gap:24px}
