@@ -145,6 +145,7 @@ textarea{min-height:140px;resize:vertical}
 .past-links{display:flex;gap:24px;font-weight:600;font-size:15px}.past-links a{text-decoration:none}
 
 /* Format : une photo par moment de la soirée */
-.step-photo{height:260px;margin:0 0 20px;border-radius:16px}
+.step-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;margin:0 0 20px;border-radius:16px;display:block}
+.step:has(.step-photo) p{color:var(--encre)}
 .step:has(.step-photo){border-top:0;padding-top:0}
 .step:has(.step-photo) strong{border-top:2px solid var(--encre);padding-top:16px}

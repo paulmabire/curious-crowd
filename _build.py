@@ -145,9 +145,9 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 <section id="format"><div class="wrap">
   <h2 class="h2">Une soirée, un intervenant, <span class="hl">des coulisses.</span></h2>
   <div class="cols cols-3" style="margin-top:56px">
-    <div class="step"><img class="photo step-photo" src="img/comptoir-rouge.jpg" alt="L’accueil au comptoir"><strong>19h45</strong><p>Accueil des participants autour d’un verre. Premier verre offert avec votre billet d’entrée.</p></div>
-    <div class="step"><img class="photo step-photo" src="img/public.jpg" alt="Le public face à l’intervenant"><strong>20h15</strong><p>Début de l’échange avec l’intervenant.</p></div>
-    <div class="step"><img class="photo step-photo" src="img/rires.jpg" alt="Des participants qui rient autour d’un verre"><strong>21h30</strong><p>Prolongation de la soirée : rencontres, verres et discussions informelles.</p></div>
+    <div class="step"><img class="photo step-photo" src="img/moment-1945.jpg" alt="Des participants installés au bar"><strong>19h45</strong><p>Accueil des participants autour d’un verre. Premier verre offert avec votre billet d’entrée.</p></div>
+    <div class="step"><img class="photo step-photo" src="img/moment-2015.jpg" alt="Une participante filme l’intervenant"><strong>20h15</strong><p>Début de l’échange avec l’intervenant.</p></div>
+    <div class="step"><img class="photo step-photo" src="img/moment-2130.jpg" alt="Des participants discutent après la rencontre"><strong>21h30</strong><p>Prolongation de la soirée : rencontres, verres et discussions informelles.</p></div>
   </div>
 </div></section>
 
