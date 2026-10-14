@@ -152,7 +152,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 </div></section>
 
 <section style="background:var(--miel)"><div class="wrap">
-  <h2 class="h2">Participants, intervenants ou propriétaires de lieux : <span class="blue">à chacun son rendez-vous.</span></h2>
+  <h2 class="h2">Participants, intervenants ou propriétaires de lieux : <span class="hl hl--blanc">à chacun son rendez-vous.</span></h2>
   <div class="cols cols-2" style="margin-top:56px">
     <div class="card"><img class="photo" src="img/discussion.jpg" alt="" style="height:220px"><p class="label">Pour les participants</p><h3 class="h3">Venez avec votre curiosité, repartez avec une histoire à raconter.</h3>
       <div>{row("20 € la soirée","1 verre de votre choix offert.")}{row("20 à 40 personnes","Idéal pour faire des rencontres.")}{row("Des sujets concrets","Des échanges, jamais de cours magistral.")}</div>
