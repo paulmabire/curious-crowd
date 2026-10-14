@@ -9,9 +9,9 @@ EVENTS = [
          title="Au cœur du conflit : récits d’une reporter", img="evt-conflit",
          desc="Dans les coulisses du reportage en terrain de guerre, avec Agathe Mahuet, reporter à France Info. Envoyée spéciale régulière à l’étranger, notamment en Ukraine et en Israël, lauréate du Grand Prix Varenne de la Radio 2024 pour un reportage en Ukraine. Elle répondra à toutes vos questions sur les difficultés du journalisme en zones de conflit.",
          url="https://buy.stripe.com/28E3cv5wF8QI3b1bRpdnW00"),
-    dict(day="2", month="Déc.", when="Mercredi 2 décembre · 19h45", tag="Monarchie britannique",
-         title="Royales et rebelles : l’envers du trône", img="evt-royales",
-         desc="La difficulté d’être une femme au sein de la famille royale britannique : rivalités, scandales, contraintes. Margaret Macdonald (Elle, Paris Match, Gala), autrice de « Royales et Rebelles », raconte les coulisses de la monarchie et le sort de ces femmes de la cour, anecdotes à l’appui. Posez-lui toutes vos questions !",
+    dict(day="2", month="Déc.", when="Mercredi 2 décembre · 19h45", tag="L’envers du trône",
+         title="Les coulisses de la famille royale britannique", img="evt-royales",
+         desc="Rivalités, scandales, presse people… Margaret Macdonald (Elle, Paris Match, Gala), autrice de « Royales et Rebelles », raconte combien il est difficile d’être une femme au sein de la famille royale, anecdotes à l’appui. Venez lui poser toutes vos questions !",
          url="https://buy.stripe.com/bJe9AT8IRgjah1R3kTdnW02"),
 ]
 
@@ -45,7 +45,7 @@ def page(file, title, desc, body):
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="menu" aria-label="Menu mobile">
-    <a class="m" href="conferences.html">Prochaines conférences</a>
+    <a class="m" href="conferences.html">Prochaines soirées</a>
     <a class="m" href="index.html#concept">Concept</a>
     <a class="m" href="index.html#format">Format</a>
     <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
@@ -61,7 +61,7 @@ def page(file, title, desc, body):
 <footer class="footer">
   <div class="wrap">
     <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
-    <small>© 2026 The Curious Crowd · Conférences en petit comité · Paris · <a href="mentions-legales.html">Mentions légales</a></small>
+    <small>© 2026 The Curious Crowd · Rencontres en petit comité · Paris · <a href="mentions-legales.html">Mentions légales</a></small>
   </div>
 </footer>
 <script>
@@ -95,13 +95,13 @@ def form(title, subject, fields, cta):
 
 # ---------- Accueil ----------
 page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées par ceux qui les font",
-"Conférences en petit comité dans des bars parisiens : un intervenant, 20 à 40 curieux, 1 verre offert.", f"""
+"Rencontres en petit comité dans des bars parisiens : un intervenant, 20 à 40 curieux, 1 verre offert.", f"""
 <section class="hero"><div class="orb" style="width:300px;height:300px;right:28%;top:120px"></div><div class="wrap">
   <div class="hero-grid">
     <div>
       <h1 class="h1">Les <span class="blue">coulisses</span> des métiers et de l’actualité, racontées par <span class="hl">ceux qui les font.</span></h1>
       <p class="lead" style="margin-top:28px">Un verre avec un reporter de guerre, un médaillé olympique ou un DJ international. Ils racontent les coulisses de leur métier, vous posez vos questions.</p>
-      <div class="ctas"><a class="btn" href="conferences.html">Voir les prochaines conférences</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
+      <div class="ctas"><a class="btn" href="conferences.html">Voir nos prochaines soirées</a><a class="link" href="lieu-partenaire.html">Devenir lieu partenaire →</a></div>
     </div>
     <img class="photo" src="img/hero.jpg" alt="Une soirée The Curious Crowd dans un bar parisien">
   </div>
@@ -123,7 +123,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 
 <section id="format"><div class="wrap">
   <h2 class="h2">Une soirée, un intervenant, <span class="hl">des coulisses.</span></h2>
-  <img class="photo" src="img/format.jpg" alt="Une conférence dans un bar" style="height:340px;margin:56px 0">
+  <img class="photo" src="img/format.jpg" alt="Une rencontre dans un bar" style="height:340px;margin:56px 0">
   <div class="cols cols-3">
     <div class="step"><strong>19h45</strong><p>Accueil des participants autour d’un verre. Premier verre offert avec votre billet d’entrée.</p></div>
     <div class="step"><strong>20h15</strong><p>Début de l’échange avec l’intervenant.</p></div>
@@ -162,7 +162,7 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 </div></section>
 """)
 
-# ---------- Conférences ----------
+# ---------- Prochaines soirées ----------
 cards = "".join(f"""<article class="card event">
   <div class="date"><strong>{e['day']}</strong><span class="hl">{e['month']}</span></div>
   <div class="stack">
@@ -172,8 +172,8 @@ cards = "".join(f"""<article class="card event">
   </div>
   <img class="photo" src="img/{e['img']}.jpg" alt="{e['title']}">
 </article>""" for e in EVENTS)
-page("conferences.html", "Prochaines conférences — The Curious Crowd", "Choisissez votre soirée et réservez votre place.", f"""
-<section><div class="wrap stack">{head("Agenda","Les prochaines","conférences.","Choisissez votre soirée, réservez votre place, et venez avec vos questions. Places limitées.")}
+page("conferences.html", "Prochaines soirées — The Curious Crowd", "Choisissez votre soirée et réservez votre place.", f"""
+<section><div class="wrap stack">{head("Agenda","Les prochaines","soirées.","Choisissez votre soirée, réservez votre place, et venez avec vos questions. Places limitées.")}
 <div class="stack" style="margin-top:56px">{cards}</div></div></section>""")
 
 # ---------- Lieu partenaire ----------
@@ -190,7 +190,7 @@ page("intervenant.html", "Proposer un sujet — The Curious Crowd", "Racontez vo
 <section><div class="wrap stack">{head("Intervenants","Votre métier,","notre sujet du soir.","Reporter, sportive, chef, chercheur… Votre quotidien fascine ceux qui ne le vivent pas. Venez le raconter à 20 à 40 curieux, autour d’un verre.")}
 <img class="photo banner" src="img/format.jpg" alt="Soirée en petit comité" style="margin-top:56px">
 <div class="cols cols-2" style="align-items:start">
-  <div class="card"><p class="label">Comment se déroule une soirée</p><h2 class="h3">Vous racontez, ils vous questionnent.</h2><div>{row("Un échange, pas une conférence","Votre métier, vos coulisses, vos anecdotes. Pas besoin de slides.")}{row("Des questions au fil de l’eau","Le public intervient quand il veut, dans une ambiance détendue.")}{row("Un public curieux","20 à 40 personnes, dans un bar ou un hôtel parisien.")}{row("Du clé en main","Lieu, billetterie, animation et communication : on gère tout.")}</div></div>
+  <div class="card"><p class="label">Comment se déroule une soirée</p><h2 class="h3">Vous racontez, ils vous questionnent.</h2><div>{row("Une rencontre, pas un cours magistral","Votre métier, vos coulisses, vos anecdotes. Pas besoin de slides.")}{row("Des questions au fil de l’eau","Le public intervient quand il veut, dans une ambiance détendue.")}{row("Un public curieux","20 à 40 personnes, dans un bar ou un hôtel parisien.")}{row("Du clé en main","Lieu, billetterie, animation et communication : on gère tout.")}</div></div>
   {form("Parlez-nous de votre sujet.","Nouvelle proposition d’intervenant",[field("nom","Prénom et nom","Ex. Camille Martin"),field("metier","Votre métier","Ex. reporter, autrice, DJ"),field("sujet","Le sujet que vous aimeriez raconter","Ex. Couvrir une guerre en direct"),field("email","Email","vous@exemple.fr",typ="email"),field("liens","Liens (facultatif)","Site, articles, podcast, réseaux…",req=False),field("message","Un mot de plus (facultatif)","Anecdotes, disponibilités, questions…",big=True,req=False)],"Proposer mon sujet")}
 </div></div></section>""")
 
@@ -199,7 +199,7 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <section><div class="wrap stack">{head("Réservation confirmée","C’est","réservé !","Merci ! Votre reçu vous a été envoyé par email. On a hâte de vous voir.")}
 <img class="photo banner" src="img/concept2.jpg" alt="" style="margin-top:56px">
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
-<div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres conférences</a></div></div>
+<div class="ctas" style="margin-top:0"><a class="btn" href="conferences.html">Voir les autres soirées</a></div></div>
 </div></section>""")
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
