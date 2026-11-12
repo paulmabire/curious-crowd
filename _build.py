@@ -204,7 +204,7 @@ past_more = "".join(event_card(e, True) for e in PAST[2:])
 more_btn = (f'<div class="more-wrap"><button class="btn" type="button" id="more-past" aria-expanded="false" aria-controls="past-more">Voir toutes les rencontres passées</button></div>'
             f'<div class="stack" id="past-more" hidden>{past_more}</div>') if past_more else ""
 page("rencontres.html", "Rencontres — The Curious Crowd", "Les prochaines rencontres The Curious Crowd, et celles déjà passées : réservez votre place.", f"""
-<section id="prochaines"><div class="orb" style="width:300px;height:300px;right:6%;top:40px"></div><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
+<section id="prochaines"><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
 {upcoming}</div></section>
 
 <section id="passees" style="background:#fff"><div class="wrap">
