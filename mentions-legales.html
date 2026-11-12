@@ -19,19 +19,18 @@
 <link rel="icon" href="favicon-32.png?v=2" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta name="theme-color" content="#fff8ec">
-<link rel="stylesheet" href="style.css?v=15a6bfb3">
+<link rel="stylesheet" href="style.css?v=a2f3af60">
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="index.html">The <b>Curious</b> Crowd</a>
-    <ul><li><a href="rencontres.html">Prochaines rencontres</a></li><li><a href="rencontres-passees.html">Rencontres passées</a></li><li><a href="index.html#concept">Concept</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
+    <ul><li><a href="rencontres.html">Rencontres</a></li><li><a href="index.html#concept">Concept</a></li><li><a href="lieu-partenaire.html">Lieux partenaires</a></li></ul>
     <a class="btn" href="rencontres.html">Réserver ma place</a>
     <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="menu" aria-label="Menu mobile">
-    <a class="m" href="rencontres.html">Prochaines rencontres</a>
-    <a class="m" href="rencontres-passees.html">Rencontres passées</a>
+    <a class="m" href="rencontres.html">Rencontres</a>
     <a class="m" href="index.html#concept">Concept</a>
     <a class="m" href="lieu-partenaire.html">Lieux partenaires</a>
     <a class="m" href="intervenant.html">Proposer un sujet</a>
@@ -57,6 +56,7 @@
 const b=document.querySelector('.burger'),m=document.querySelector('.menu');
 b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
 document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Envoi…';try{const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)});if(!r.ok)throw 0;f.hidden=true;f.nextElementSibling.hidden=false}catch(_){btn.disabled=false;btn.textContent='Réessayer';alert('L’envoi a échoué. Écrivez-nous à paul@thecuriouscrowd.fr')}}));
+const mp=document.getElementById('more-past');if(mp)mp.addEventListener('click',()=>{const t=document.getElementById('past-more');t.hidden=false;mp.parentNode.hidden=true});
 m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');document.body.style.overflow=''}));
 </script>
 </body>

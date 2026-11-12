@@ -5,38 +5,29 @@ EMAIL = "paul@thecuriouscrowd.fr"
 FORM = f"https://formsubmit.co/ajax/{EMAIL}"  # 1er envoi : cliquer le lien d'activation reçu par email
 
 EVENTS = [
-    dict(day="11", month="Nov.", when="Mercredi 11 novembre · 19h45", tag="Grand reportage",
-         title="Au cœur du conflit : récits d’une reporter", img="evt-conflit",
-         desc="Dans les coulisses du reportage en terrain de guerre, avec Agathe Mahuet, reporter à France Info. Envoyée spéciale régulière à l’étranger, notamment en Ukraine et en Israël, lauréate du Grand Prix Varenne de la Radio 2024 pour un reportage en Ukraine. Elle répondra à toutes vos questions sur les difficultés du journalisme en zones de conflit.",
-         url="https://buy.stripe.com/28E3cv5wF8QI3b1bRpdnW00"),
     dict(day="2", month="Déc.", when="Mercredi 2 décembre · 19h45", tag="L’envers du trône",
          title="Les coulisses de la famille royale britannique", img="evt-royales",
          desc="Rivalités, scandales, presse people… Margaret Macdonald (Elle, Paris Match, Gala), autrice de « Royales et Rebelles », raconte combien il est difficile d’être une femme au sein de la famille royale, anecdotes à l’appui. Venez lui poser toutes vos questions !",
          url="https://buy.stripe.com/bJe9AT8IRgjah1R3kTdnW02"),
 ]
 
-# Rencontres passées : ajouter ici chaque soirée terminée (la plus récente en premier).
-# dict(num="01", date="Mercredi 11 novembre 2026 · Café Lino", title="…", who="Avec …", quote="« … »",
-#      img="nom-photo", photos="lien album", extrait="lien vidéo")
-PAST = []
+# Rencontres passées : déplacer ici chaque soirée terminée (la plus récente en premier).
+# Les 2 premières sont visibles, les suivantes s'ouvrent avec « Voir toutes les rencontres passées ».
+PAST = [
+    dict(day="11", month="Nov.", when="Mercredi 11 novembre · 19h45", tag="Grand reportage",
+         title="Au cœur du conflit : récits d’une reporter", img="evt-conflit",
+         desc="Dans les coulisses du reportage en terrain de guerre, avec Agathe Mahuet, reporter à France Info. Envoyée spéciale régulière à l’étranger, notamment en Ukraine et en Israël, lauréate du Grand Prix Varenne de la Radio 2024 pour un reportage en Ukraine. Elle a répondu à toutes les questions sur les difficultés du journalisme en zones de conflit."),
+]
 
-def next_card(e):
-    return f"""<article class="next">
-  <img src="img/{e['img']}.jpg" alt="{e['title']}">
-  <div class="next-body">
-    <p class="label">La prochaine rencontre</p>
-    <h2 class="h3">{e['title']}</h2>
-    <p class="next-meta">{e['when']} · Café Lino · 20 €, 1 verre offert</p>
-    <div class="next-actions"><a class="btn btn--lime full-m" href="{e['url']}">Réserver ma place</a><a class="next-link" href="rencontres.html">Toutes les prochaines rencontres →</a></div>
-  </div>
-</article>"""
+# Photos de la soirée (provisoires : remplacer par celles du photographe, sans légende ni date)
+GALLERY = ["moment-1945", "moment-2015", "moment-2130", "rires"]
 
 def row(t, d): return f'<div class="row"><h4>{t}</h4><p>{d}</p></div>'
 
 import hashlib
 CSS_V = hashlib.md5(open("style.css","rb").read()).hexdigest()[:8]
 
-NAV = [("rencontres.html", "Prochaines rencontres"), ("rencontres-passees.html", "Rencontres passées"),
+NAV = [("rencontres.html", "Rencontres"),
        ("index.html#concept", "Concept"), ("lieu-partenaire.html", "Lieux partenaires")]
 
 def page(file, title, desc, body):
@@ -94,6 +85,7 @@ def page(file, title, desc, body):
 const b=document.querySelector('.burger'),m=document.querySelector('.menu');
 b.addEventListener('click',()=>{{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}});
 document.querySelectorAll('form').forEach(f=>f.addEventListener('submit',async e=>{{e.preventDefault();const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Envoi…';try{{const r=await fetch(f.action,{{method:'POST',headers:{{Accept:'application/json'}},body:new FormData(f)}});if(!r.ok)throw 0;f.hidden=true;f.nextElementSibling.hidden=false}}catch(_){{btn.disabled=false;btn.textContent='Réessayer';alert('L’envoi a échoué. Écrivez-nous à {EMAIL}')}}}}));
+const mp=document.getElementById('more-past');if(mp)mp.addEventListener('click',()=>{{const t=document.getElementById('past-more');t.hidden=false;mp.parentNode.hidden=true}});
 m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{{m.classList.remove('open');document.body.style.overflow=''}}));
 </script>
 </body>
@@ -187,19 +179,44 @@ page("index.html", "The Curious Crowd — Les coulisses des métiers, racontées
 </div></section>
 """)
 
-# ---------- Prochaines soirées ----------
-cards = "".join(f"""<article class="card event">
+# ---------- Rencontres (à venir + passées) ----------
+def event_card(e, past=False):
+    cls = "card event event--past" if past else "card event"
+    if past:
+        action = ""
+    else:
+        action = f'<div class="actions"><a class="btn btn--lime full-m" href="{e["url"]}">Réserver ma place</a><span class="note">Paiement sécurisé via Stripe →</span></div>'
+    return f"""<article class="{cls}">
   <div class="date"><strong>{e['day']}</strong><span class="hl">{e['month']}</span></div>
   <div class="stack">
-    <p class="label">{e['when']} · {e['tag']}</p><h2 class="h3">{e['title']}</h2><p>{e['desc']}</p>
-    <div class="cols cols-2">{row("Café Lino","81 bd de Charonne, 75011 Paris")}{row("20 € l’entrée","1 verre de votre choix offert")}</div>
-    <div class="actions"><a class="btn full-m" href="{e['url']}">Réserver ma place</a><span class="note">Paiement sécurisé via Stripe</span></div>
+    <p class="label">{e['when']} · {e['tag']}</p><h3 class="h3">{e['title']}</h3><p>{e['desc']}</p>
+    {'' if past else f'<div class="cols cols-2">{row("Café Lino","81 bd de Charonne, 75011 Paris")}{row("20 € l’entrée","1 verre de votre choix offert")}</div>'}
+    {action}
   </div>
   <img class="photo" src="img/{e['img']}.jpg" alt="{e['title']}">
-</article>""" for e in EVENTS)
-page("rencontres.html", "Prochaines rencontres — The Curious Crowd", "Choisissez votre rencontre et réservez votre place.", f"""
-<section><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
-<div class="stack" style="margin-top:56px">{cards}</div></div></section>""")
+</article>"""
+
+if EVENTS:
+    upcoming = '<div class="stack" style="margin-top:56px">' + "".join(event_card(e) for e in EVENTS) + '</div>'
+else:
+    upcoming = '<div class="card" style="margin-top:56px"><h3 class="h3">La prochaine rencontre arrive bientôt.</h3><p>Écrivez-nous à <a href="mailto:' + EMAIL + '">' + EMAIL + '</a> pour être prévenu dès l’ouverture de la billetterie.</p></div>'
+
+past_shown = "".join(event_card(e, True) for e in PAST[:2])
+past_more = "".join(event_card(e, True) for e in PAST[2:])
+more_btn = (f'<div class="more-wrap"><button class="btn" type="button" id="more-past" aria-expanded="false" aria-controls="past-more">Voir toutes les rencontres passées</button></div>'
+            f'<div class="stack" id="past-more" hidden>{past_more}</div>') if past_more else ""
+photos = "".join(f'<img class="photo" src="img/{g}.jpg" alt="Ambiance d’une soirée The Curious Crowd" loading="lazy">' for g in GALLERY)
+page("rencontres.html", "Rencontres — The Curious Crowd", "Les prochaines rencontres The Curious Crowd, et celles déjà passées : réservez votre place.", f"""
+<section id="prochaines"><div class="orb" style="width:300px;height:300px;right:6%;top:40px"></div><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
+{upcoming}</div></section>
+
+<section id="passees" style="background:#fff"><div class="wrap">
+  <div class="stack"><p class="label">Archives</p><h2 class="h1">Les rencontres passées</h2></div>
+  <div class="stack" style="margin-top:56px">{past_shown}</div>
+  {more_btn}
+  <div class="gallery-head"><h3 class="h3">La soirée en images</h3><span class="tag">Photos provisoires</span></div>
+  <div class="gallery">{photos}</div>
+</div></section>""")
 
 # ---------- Lieu partenaire ----------
 page("lieu-partenaire.html", "Devenir lieu partenaire — The Curious Crowd", "Accueillez nos soirées : 20 à 40 personnes un soir de semaine, on s’occupe de tout.", f"""
@@ -226,22 +243,6 @@ page("merci.html", "Réservation confirmée — The Curious Crowd", "Merci pour 
 <div class="card"><p class="label">Votre soirée</p><h2 class="h3">Le mercredi, à partir de 19h45.</h2><div>{row("Café Lino","81 bd de Charonne, 75011 Paris · Métro Alexandre Dumas")}{row("Votre billet","20 € · 1 verre de votre choix offert")}{row("Arrivée","Accueil dès 19h45 autour d’un verre, début de l’échange à 20h15.")}</div>
 <div class="ctas" style="margin-top:0"><a class="btn" href="rencontres.html">Voir les autres rencontres</a></div></div>
 </div></section>""")
-# ---------- Rencontres passées ----------
-def past_card(e):
-    links = "".join(f'<a href="{u}">{l} →</a>' for l, u in (("Voir les photos", e.get("photos")), ("Revoir un extrait", e.get("extrait"))) if u)
-    return f"""<article class="card past"><div class="past-photo"><img src="img/{e['img']}.jpg" alt="{e['title']}"><span class="hl past-num">N° {e['num']}</span></div>
-<div class="past-body"><p class="label">{e['date']}</p><h2 class="h3">{e['title']}</h2><p class="note">{e['who']}</p><p class="past-quote">{e['quote']}</p><div class="past-links">{links}</div></div></article>"""
-if PAST:
-    past_body = f"""<section><div class="wrap stack">{head("Archives","Les rencontres","passées.","Ce qu’on s’est raconté, en photos et en quelques phrases. De quoi donner envie de la prochaine.")}
-<div class="cols cols-2" style="margin-top:56px">{"".join(past_card(e) for e in PAST)}</div>
-{next_card(EVENTS[0])}</div></section>"""
-else:
-    past_body = f"""<section class="empty"><div class="wrap">
-<p class="label">Archives</p><h1 class="h2">Les premières rencontres arrivent.</h1>
-<p class="lead">Cette page gardera la trace de chaque soirée : les photos, l’intervenant, ce qu’on en retient. Rendez-vous le 11 novembre pour écrire la première page.</p>
-{next_card(EVENTS[0])}</div></section>"""
-page("rencontres-passees.html", "Rencontres passées — The Curious Crowd", "Les rencontres The Curious Crowd déjà passées : photos, intervenants et ce qu’on en retient.", past_body)
-
 # ---------- Mentions légales ----------
 legal = "".join(f'<h3 style="font-size:20px;margin-top:8px">{h}</h3><p>{t}</p>' for h, t in [
  ("Éditeur", f"The Curious Crowd — [forme juridique, capital, SIRET], [adresse], Paris. Directeur de la publication : [nom]. Contact : {EMAIL}"),
@@ -253,4 +254,18 @@ page("mentions-legales.html", "Mentions légales — The Curious Crowd", "Mentio
 <img class="photo banner" src="img/bar-briques.jpg" alt="" style="margin-top:56px;object-position:center 40%">
 <div class="card" style="max-width:860px">{legal}</div>
 </div></section>""")
+REDIRECT = """<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Rencontres — The Curious Crowd</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.thecuriouscrowd.fr/rencontres.html">
+<meta http-equiv="refresh" content="0; url=rencontres.html#passees">
+<script>location.replace("rencontres.html#passees")</script>
+</head>
+<body><p><a href="rencontres.html#passees">Voir les rencontres</a></p></body>
+</html>
+"""
+open("rencontres-passees.html", "w", encoding="utf-8").write(REDIRECT)
 print("ok")
