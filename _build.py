@@ -6,7 +6,7 @@ FORM = f"https://formsubmit.co/ajax/{EMAIL}"  # 1er envoi : cliquer le lien d'ac
 
 EVENTS = [
     dict(day="2", month="Déc.", when="Mercredi 2 décembre · 19h45", tag="L’envers du trône",
-         title="Les coulisses de la famille royale britannique", img="evt-royales",
+         title="Royales &amp; Rebelles : l’envers du trône britannique", img="evt-royales",
          desc="Rivalités, scandales, presse people… Margaret Macdonald (Elle, Paris Match, Gala), autrice de « Royales et Rebelles », raconte combien il est difficile d’être une femme au sein de la famille royale, anecdotes à l’appui. Venez lui poser toutes vos questions !",
          url="https://buy.stripe.com/bJe9AT8IRgjah1R3kTdnW02"),
 ]
