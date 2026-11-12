@@ -156,3 +156,4 @@ textarea{min-height:140px;resize:vertical}
 .event--past{background:var(--ciel)}
 .more-wrap{display:flex;justify-content:center;margin-top:40px}
 #past-more{margin-top:24px}
+.event--past .date .hl{background:transparent;padding:0}
