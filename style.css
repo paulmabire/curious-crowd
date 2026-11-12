@@ -156,8 +156,3 @@ textarea{min-height:140px;resize:vertical}
 .event--past{background:var(--ciel)}
 .more-wrap{display:flex;justify-content:center;margin-top:40px}
 #past-more{margin-top:24px}
-.gallery-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:96px}
-.tag{background:var(--noir);color:#fff;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:4px;transform:rotate(-1.5deg);display:inline-block}
-.gallery{display:grid;gap:16px;margin-top:32px;grid-template-columns:repeat(2,1fr)}
-.gallery .photo{aspect-ratio:4/5;height:auto}
-@media (min-width:900px){.gallery{grid-template-columns:repeat(4,1fr);align-items:start}.gallery .photo:nth-child(even){margin-top:40px}}

@@ -19,8 +19,6 @@ PAST = [
          desc="Dans les coulisses du reportage en terrain de guerre, avec Agathe Mahuet, reporter à France Info. Envoyée spéciale régulière à l’étranger, notamment en Ukraine et en Israël, lauréate du Grand Prix Varenne de la Radio 2024 pour un reportage en Ukraine. Elle a répondu à toutes les questions sur les difficultés du journalisme en zones de conflit."),
 ]
 
-# Photos de la soirée (provisoires : remplacer par celles du photographe, sans légende ni date)
-GALLERY = ["moment-1945", "moment-2015", "moment-2130", "rires"]
 
 def row(t, d): return f'<div class="row"><h4>{t}</h4><p>{d}</p></div>'
 
@@ -205,7 +203,6 @@ past_shown = "".join(event_card(e, True) for e in PAST[:2])
 past_more = "".join(event_card(e, True) for e in PAST[2:])
 more_btn = (f'<div class="more-wrap"><button class="btn" type="button" id="more-past" aria-expanded="false" aria-controls="past-more">Voir toutes les rencontres passées</button></div>'
             f'<div class="stack" id="past-more" hidden>{past_more}</div>') if past_more else ""
-photos = "".join(f'<img class="photo" src="img/{g}.jpg" alt="Ambiance d’une soirée The Curious Crowd" loading="lazy">' for g in GALLERY)
 page("rencontres.html", "Rencontres — The Curious Crowd", "Les prochaines rencontres The Curious Crowd, et celles déjà passées : réservez votre place.", f"""
 <section id="prochaines"><div class="orb" style="width:300px;height:300px;right:6%;top:40px"></div><div class="wrap stack">{head("Agenda","Les prochaines","rencontres.","Choisissez votre rencontre, réservez votre place, et venez avec vos questions. Places limitées.")}
 {upcoming}</div></section>
@@ -214,8 +211,6 @@ page("rencontres.html", "Rencontres — The Curious Crowd", "Les prochaines renc
   <div class="stack"><p class="label">Archives</p><h2 class="h1">Les rencontres passées</h2></div>
   <div class="stack" style="margin-top:56px">{past_shown}</div>
   {more_btn}
-  <div class="gallery-head"><h3 class="h3">La soirée en images</h3><span class="tag">Photos provisoires</span></div>
-  <div class="gallery">{photos}</div>
 </div></section>""")
 
 # ---------- Lieu partenaire ----------
