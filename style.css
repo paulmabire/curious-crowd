@@ -157,3 +157,13 @@ textarea{min-height:140px;resize:vertical}
 .more-wrap{display:flex;justify-content:center;margin-top:40px}
 #past-more{margin-top:24px}
 .event--past .date .hl{background:transparent;padding:0}
+
+/* Carrousel photos */
+.carousel-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-track .photo{flex:0 0 82%;min-width:0;height:300px;scroll-snap-align:start}
+@media (min-width:900px){.carousel-track .photo{flex-basis:calc((100% - 32px)/3);height:340px}}
+.carousel-nav{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.carousel-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--ligne);background:#fff;color:var(--encre);font-size:18px;cursor:pointer;transition:background .15s}
+.carousel-btn:hover{background:var(--lime)}
+@media (max-width:899px){.hide-m{display:none}}
