@@ -187,7 +187,7 @@ def event_card(e, past=False):
     if past:
         action = ""
     else:
-        action = f'<div class="actions"><a class="btn btn--lime full-m" href="{e["url"]}">Réserver ma place</a><span class="note">Paiement sécurisé via Stripe →</span></div>'
+        action = f'<div class="actions"><a class="btn btn--lime full-m" href="{e["url"]}" target="_blank" rel="noopener">Réserver ma place</a><span class="note">Paiement sécurisé via Stripe →</span></div>'
     return f"""<article class="{cls}">
   <div class="date"><strong>{e['day']}</strong><span class="hl">{e['month']}</span></div>
   <div class="stack">
